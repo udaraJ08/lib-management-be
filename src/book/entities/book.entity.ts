@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { AuthorEntity } from '../../author/entities/author.entity';
+import { GenreDetailsEntity } from '../../genre/entities/genreDetails.entity';
 
 @Entity('book')
 export class BookEntity {
@@ -68,4 +69,7 @@ export class BookEntity {
 
   @ManyToOne(() => AuthorEntity, (author) => author.books)
   author: AuthorEntity;
+
+  @ManyToOne(() => GenreDetailsEntity, (details) => details.book)
+  genreDetails: GenreDetailsEntity[];
 }

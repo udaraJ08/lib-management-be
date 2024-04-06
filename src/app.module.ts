@@ -12,6 +12,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BookEntity } from './book/entities/book.entity';
 import { UserEntity } from './user/entities/user.entity';
 import { AuthorEntity } from './author/entities/author.entity';
+import { GenreModule } from './genre/genre.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { AuthorEntity } from './author/entities/author.entity';
     BookModule,
     AuthorModule,
     PaymentModule,
+    GenreModule,
   ],
   controllers: [AppController],
   providers: [AppService],
