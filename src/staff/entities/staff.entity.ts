@@ -6,26 +6,27 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { BookEntity } from '../../book/entities/book.entity';
+import { BorrowEntity } from '../../borrow/entities/borrow.entity';
+import { PaymentEntity } from '../../payment/entities/payment.entity';
 
-@Entity('author')
-export class AuthorEntity {
+@Entity('staff')
+export class StaffEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({
     type: 'varchar',
-    length: 100,
+    length: 30,
     nullable: false,
   })
   name: string;
 
   @Column({
     type: 'varchar',
-    length: 200,
+    length: 30,
     nullable: false,
   })
-  biography: string;
+  address: string;
 
   @Column({
     type: 'date',
@@ -33,19 +34,15 @@ export class AuthorEntity {
   })
   dob: string;
 
-  @Column({
-    type: 'varchar',
-    length: 100,
-    nullable: false,
-  })
-  nationality: string;
-
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => BookEntity, (book) => book.author)
-  books: BookEntity[];
+  @OneToMany(() => BorrowEntity, (borrow) => borrow.user)
+  borrows: BorrowEntity[];
+
+  @OneToMany(() => PaymentEntity, (payment) => payment.user)
+  payments: PaymentEntity[];
 }

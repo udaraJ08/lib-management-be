@@ -2,18 +2,20 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { GenreDetailsEntity } from './genreDetails.entity';
 
-@Entity('role')
-export class RoleEntity {
+@Entity('genre')
+export class GenreEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({
     type: 'varchar',
-    length: 10,
+    length: 30,
     nullable: false,
   })
   name: string;
@@ -29,4 +31,7 @@ export class RoleEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => GenreDetailsEntity, (details) => details.genre)
+  genreDetails: GenreDetailsEntity[];
 }

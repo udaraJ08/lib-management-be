@@ -2,31 +2,39 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { StaffEntity } from '../../staff/entities/staff.entity';
 
-@Entity('role')
-export class RoleEntity {
+@Entity('staff_auth')
+export class StaffAuthEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({
     type: 'varchar',
-    length: 10,
+    length: 50,
     nullable: false,
+    unique: true,
   })
-  name: string;
+  username: string;
 
   @Column({
     type: 'varchar',
     nullable: false,
   })
-  description: string;
+  password: string;
 
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToOne(() => StaffEntity)
+  @JoinColumn()
+  staff: StaffEntity;
 }
