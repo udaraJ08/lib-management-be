@@ -17,6 +17,9 @@ import { GenreEntity } from './genre/entities/genre.entity';
 import { GenreDetailsEntity } from './genre/entities/genreDetails.entity';
 import { PublisherModule } from './publisher/publisher.module';
 import { PublisherEntity } from './publisher/entities/publisher.entity';
+import { StaffModule } from './staff/staff.module';
+import { StaffEntity } from './staff/entities/staff.entity';
+import { BorrowEntity } from './borrow/entities/borrow.entity';
 
 @Module({
   imports: [
@@ -33,6 +36,8 @@ import { PublisherEntity } from './publisher/entities/publisher.entity';
         GenreEntity,
         GenreDetailsEntity,
         PublisherEntity,
+        StaffEntity,
+        BorrowEntity,
       ],
       database: 'lib_management_db',
       synchronize: true,
@@ -47,6 +52,7 @@ import { PublisherEntity } from './publisher/entities/publisher.entity';
     PaymentModule,
     GenreModule,
     PublisherModule,
+    StaffModule,
   ],
   controllers: [AppController],
   providers: [AppService],

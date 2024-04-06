@@ -8,8 +8,8 @@ import {
 } from 'typeorm';
 import { BorrowEntity } from '../../borrow/entities/borrow.entity';
 
-@Entity('user')
-export class UserEntity {
+@Entity('staff')
+export class StaffEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
