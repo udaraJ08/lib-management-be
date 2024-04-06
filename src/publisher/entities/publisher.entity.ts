@@ -6,25 +6,33 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { GenreDetailsEntity } from './genreDetails.entity';
+import { BookEntity } from '../../book/entities/book.entity';
 
-@Entity('genre')
-export class GenreEntity {
+@Entity('publisher')
+export class PublisherEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({
     type: 'varchar',
-    length: 30,
+    length: 100,
     nullable: false,
   })
   name: string;
 
   @Column({
     type: 'varchar',
+    length: 100,
     nullable: false,
   })
-  description: string;
+  headquarterAddress: string;
+
+  @Column({
+    type: 'varchar',
+    length: 11,
+    nullable: false,
+  })
+  contact: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -32,6 +40,6 @@ export class GenreEntity {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => GenreDetailsEntity, (details) => details.genre)
-  genreDetails: GenreDetailsEntity[];
+  @OneToMany(() => BookEntity, (book) => book.publisher)
+  books: BookEntity[];
 }

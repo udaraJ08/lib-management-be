@@ -13,6 +13,10 @@ import { BookEntity } from './book/entities/book.entity';
 import { UserEntity } from './user/entities/user.entity';
 import { AuthorEntity } from './author/entities/author.entity';
 import { GenreModule } from './genre/genre.module';
+import { GenreEntity } from './genre/entities/genre.entity';
+import { GenreDetailsEntity } from './genre/entities/genreDetails.entity';
+import { PublisherModule } from './publisher/publisher.module';
+import { PublisherEntity } from './publisher/entities/publisher.entity';
 
 @Module({
   imports: [
@@ -22,7 +26,14 @@ import { GenreModule } from './genre/genre.module';
       port: Number.parseInt(process.env.DB_PORT),
       password: 'root',
       username: 'postgres',
-      entities: [UserEntity, AuthorEntity],
+      entities: [
+        UserEntity,
+        AuthorEntity,
+        BookEntity,
+        GenreEntity,
+        GenreDetailsEntity,
+        PublisherEntity,
+      ],
       database: 'lib_management_db',
       synchronize: true,
       logging: true,
@@ -35,6 +46,7 @@ import { GenreModule } from './genre/genre.module';
     AuthorModule,
     PaymentModule,
     GenreModule,
+    PublisherModule,
   ],
   controllers: [AppController],
   providers: [AppService],

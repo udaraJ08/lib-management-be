@@ -3,11 +3,13 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { AuthorEntity } from '../../author/entities/author.entity';
 import { GenreDetailsEntity } from '../../genre/entities/genreDetails.entity';
+import { PublisherEntity } from '../../publisher/entities/publisher.entity';
 
 @Entity('book')
 export class BookEntity {
@@ -70,6 +72,9 @@ export class BookEntity {
   @ManyToOne(() => AuthorEntity, (author) => author.books)
   author: AuthorEntity;
 
-  @ManyToOne(() => GenreDetailsEntity, (details) => details.book)
+  @ManyToOne(() => PublisherEntity, (publisher) => publisher.books)
+  publisher: PublisherEntity;
+
+  @OneToMany(() => GenreDetailsEntity, (details) => details.book)
   genreDetails: GenreDetailsEntity[];
 }
