@@ -11,6 +11,7 @@ import { PaymentModule } from './payment/payment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BookEntity } from './book/entities/book.entity';
 import { UserEntity } from './user/entities/user.entity';
+import { AuthorEntity } from './author/entities/author.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { UserEntity } from './user/entities/user.entity';
       port: Number.parseInt(process.env.DB_PORT),
       password: 'root',
       username: 'postgres',
-      entities: [UserEntity],
+      entities: [UserEntity, AuthorEntity],
       database: 'lib_management_db',
       synchronize: true,
       logging: true,
