@@ -23,6 +23,7 @@ import { BorrowEntity } from './borrow/entities/borrow.entity';
 import { UserAuthEntity } from './auth/entities/userAuth.entity';
 import { StaffAuthEntity } from './auth/entities/staffAuth.entity';
 import { PaymentEntity } from './payment/entities/payment.entity';
+import { RoleEntity } from './role/entities/role.entity';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { PaymentEntity } from './payment/entities/payment.entity';
         UserAuthEntity,
         StaffAuthEntity,
         PaymentEntity,
+        RoleEntity,
       ],
       database: 'lib_management_db',
       synchronize: true,
