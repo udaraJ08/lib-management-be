@@ -20,6 +20,9 @@ import { PublisherEntity } from './publisher/entities/publisher.entity';
 import { StaffModule } from './staff/staff.module';
 import { StaffEntity } from './staff/entities/staff.entity';
 import { BorrowEntity } from './borrow/entities/borrow.entity';
+import { UserAuthEntity } from './auth/entities/userAuth.entity';
+import { StaffAuthEntity } from './auth/entities/staffAuth.entity';
+import { PaymentEntity } from './payment/entities/payment.entity';
 
 @Module({
   imports: [
@@ -38,6 +41,9 @@ import { BorrowEntity } from './borrow/entities/borrow.entity';
         PublisherEntity,
         StaffEntity,
         BorrowEntity,
+        UserAuthEntity,
+        StaffAuthEntity,
+        PaymentEntity,
       ],
       database: 'lib_management_db',
       synchronize: true,

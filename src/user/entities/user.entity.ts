@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { BorrowEntity } from '../../borrow/entities/borrow.entity';
+import { PaymentEntity } from '../../payment/entities/payment.entity';
 
 @Entity('user')
 export class UserEntity {
@@ -41,4 +42,7 @@ export class UserEntity {
 
   @OneToMany(() => BorrowEntity, (borrow) => borrow.user)
   borrows: BorrowEntity[];
+
+  @OneToMany(() => PaymentEntity, (payment) => payment.user)
+  payments: PaymentEntity[];
 }
