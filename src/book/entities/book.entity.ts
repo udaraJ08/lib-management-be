@@ -1,27 +1,3 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-export class BookEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column({
-    type: 'varchar',
-    length: 30,
-    nullable: false,
-  })
-  name: string;
-
-  @Column({
-    type: 'varchar',
-    length: 30,
-    nullable: false,
-  })
-  address: string;
-
-  @Column({
-    type: 'date',
-    nullable: false,
-  })
-  dob: string;
-}
+export class BookEntity {}
